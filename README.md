@@ -1,4 +1,4 @@
-# Encrypting in PrismaORM with `prisma-field-encryption`
+# Encrypting in PrismaORM with prisma-field-encryption
 
 ## Description
 
@@ -36,7 +36,7 @@ model User {
    id            Int      @id         @default(autoincrement())
    username      String   @unique
    password      String               /// @encrypted
-   passwordHash  String   @unique     /// @encryption:hash(password) }
+   passwordHash  String   @unique     /// @encryption:hash(password)
 }
 ```
 
