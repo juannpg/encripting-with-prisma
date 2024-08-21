@@ -32,11 +32,11 @@ Make sure you have the following dependencies installed in your project:
 To exemplify all this, we are going to assume that we were creating a **registration and login system** in which we are asked for a `username` and a `password`, a password which we are going to **encrypt**.
 
 ```typescript
-model User {
-  id            Int     @id @default(autoincrement())
-  username      String  @unique
-  password      String  @encrypted
-  passwordHash  String  @unique /// @encryption:hash(password)
+model User { 
+	id            Int      @id         @default(autoincrement())
+	username      String   @unique
+	password      String               /// @encrypted
+	passwordHash  String   @unique     /// @encryption:hash(password) }
 }
 ```
 
@@ -49,8 +49,8 @@ model User {
 ```typescript
 const user = await prisma.user.create({
   data: {
-    username: username as string,
-    password: password as string,
+    username: username as string, // username and password have
+    password: password as string, // been previusly required to the body
   },
 });
 ```
@@ -63,9 +63,9 @@ Thanks to the `passwordHash` field, we can find users if we insert the same pass
 
 ```typescript
 const user = await prisma.user.findUnique({
-  where: {
-    passwordHash: password as string,
-    password: password as string,
-  },
+	where: {
+		username: username as string,
+		password: password as string,
+	},
 });
 ```
