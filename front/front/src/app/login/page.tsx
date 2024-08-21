@@ -6,8 +6,8 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const register = async () => {
-    const response = await fetch('http://localhost:4000/api/routers/users/register', {
+  const login = async () => {
+    const response = await fetch('http://localhost:4000/api/routers/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -21,8 +21,8 @@ function App() {
     console.log(log);
 
     if (response.status === 200) {
-      alert('Registered');
-      window.location.href='/login'
+      alert('Found!');
+      window.location.reload();
     } else {
       alert('Error');
     };
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="main h-screen flex flex-col items-center justify-center bg-red-100">
-      <h1>Register</h1>
+      <h1>login</h1>
       <input
         type="text"
         name="username"
@@ -51,9 +51,9 @@ function App() {
       />
       <button 
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => register()}
-      >Register</button>
-      <a href='login'>login</a>
+        onClick={() => login()}
+      >Login</button>
+      <a href="/">Register</a>
     </div>
   );
 }
