@@ -24,7 +24,8 @@ function App() {
       alert('Registered');
       window.location.href='/login'
     } else {
-      alert('Error');
+      alert('Error ' + log.message + ' || ' + log.error );
+      window.location.reload();
     };
   }
 

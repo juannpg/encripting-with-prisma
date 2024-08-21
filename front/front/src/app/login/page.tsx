@@ -24,7 +24,8 @@ function App() {
       alert('Found!');
       window.location.reload();
     } else {
-      alert('Error');
+      alert('Error ' + log.message + ' || ' + log.error );
+      window.location.reload();
     };
   }
 
