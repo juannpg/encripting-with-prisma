@@ -33,10 +33,10 @@ To exemplify all this, we are going to assume that we were creating a **registra
 
 ```typescript
 model User { 
-	id            Int      @id         @default(autoincrement())
-	username      String   @unique
-	password      String               /// @encrypted
-	passwordHash  String   @unique     /// @encryption:hash(password) }
+   id            Int      @id         @default(autoincrement())
+   username      String   @unique
+   password      String               /// @encrypted
+   passwordHash  String   @unique     /// @encryption:hash(password) }
 }
 ```
 
@@ -63,9 +63,9 @@ Thanks to the `passwordHash` field, we can find users if we insert the same pass
 
 ```typescript
 const user = await prisma.user.findUnique({
-	where: {
-		username: username as string,
-		password: password as string,
-	},
+   where: {
+      username: username as string,
+      password: password as string,
+   },
 });
 ```
