@@ -4,9 +4,9 @@ import express from "express";
 const router = express.Router();
 
 router.post('/register', async(req, res) => {
-  const { username, password } = req.body;
+  const { username, email } = req.body;
 
-  if ( !username || !password) {
+  if ( !username || !email) {
     return res.status(400).json({ message: 'Provide all fields' });
   }
 
@@ -14,7 +14,7 @@ router.post('/register', async(req, res) => {
     const user = await prisma.user.create({
       data: {
         username: username as string,
-        password: password as string,
+        email: email as string,
       },
     })
 
@@ -30,9 +30,9 @@ router.post('/register', async(req, res) => {
 });
 
 router.post('/login', async(req, res) => {
-  const { username, password } = req.body;
+  const { username, email } = req.body;
 
-  if ( !username || !password) {
+  if ( !username || !email) {
     return res.status(400).json({ message: 'Provide all fields' });
   }
 
@@ -40,7 +40,7 @@ router.post('/login', async(req, res) => {
     const user = await prisma.user.findUnique({
       where: {
         username: username as string,
-        password: password as string,
+        email: email as string,
       },
     });
     
