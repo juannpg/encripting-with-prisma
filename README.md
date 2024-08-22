@@ -3,7 +3,8 @@
 ## Description
 
 This README provides a guide on how to use the `prisma-field-encryption` package to encrypt specific fields in a Prisma model and how to find those specific fields with  prisma's `find` functions.
-**🚨 DO NOT USE THIS TO ENCRYPT PASSWORDS WITHOUT ADDITIONAL SECURITY MEASURES 🚨**
+
+## **🚨 DO NOT USE THIS TO ENCRYPT PASSWORDS WITHOUT ADDITIONAL SECURITY MEASURES 🚨**
 
 ## Package
 
