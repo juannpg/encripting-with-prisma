@@ -75,7 +75,7 @@ const user = await prisma.user.create({
 - An **INVARIABLE Hash** will also be assigned to the password.
 
 ### 3. Finding encrypted fields
-Thanks to the `emailHash` field, we can find users if we insert the same password with which it was created. When using `findUnique`, internally, the where clause will be rewritten to match the emailHash field with the computed hash of the clear-text input (kind of like a password check). So even if you, as the developver, copy the passwordHash from a user and use it to log in their account, you won't be able, as your input will be rewritten into a different hash.
+Thanks to the `emailHash` field, we can find users if we insert the same password with which it was created. When using `findUnique`, internally, the where clause will be rewritten to match the emailHash field with the computed hash of the clear-text input. So even if you, as the developver, copy the emailHash from a user and use it to log in their account, you won't be able, as your input will be rewritten into a different hash.
 
 ```typescript
 // import { prisma } from "/path/to/the/client";
