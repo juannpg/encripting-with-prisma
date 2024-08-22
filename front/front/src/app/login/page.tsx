@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function App() {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   const login = async () => {
     const response = await fetch('http://localhost:4000/api/routers/users/login', {
@@ -14,7 +14,7 @@ function App() {
       },
       body: JSON.stringify({
         username: username,
-        password: password
+        email: email
       })
     });
     const log = await response.json();
@@ -37,18 +37,16 @@ function App() {
         name="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        id="username"
         className="mb-4"
         placeholder='Username'
       />
       <input
         type="text"
-        name="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        id="password"
+        name="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         className='mb-4'
-        placeholder='Password'
+        placeholder='Email'
       />
       <button 
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
